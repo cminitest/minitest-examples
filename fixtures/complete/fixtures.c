@@ -41,8 +41,8 @@ define_fixture(after, after_change_age) {
 
 describe("all fixtures", test_all_fixtures)
 
-  set_fixture(before, before_all)
-  set_fixture(after, after_all)
+  before(before_all)
+  after(after_all)
 
   it("initializes the person for each test")
     Person *fry = subject();
@@ -50,8 +50,8 @@ describe("all fixtures", test_all_fixtures)
   end
 
   when("the the age is updated")
-    set_fixture(before, before_change_age)
-    set_fixture(after, after_change_age)
+    before(before_change_age)
+    after(after_change_age)
 
     it("gets the right age")
       Person *fry = subject();

@@ -14,14 +14,14 @@ define_fixture(before, before_nested) {
 }
 
 describe("before fixture", test_before_fixture)
-  set_fixture(before, before_all)
+  before(before_all)
 
   it("initializes the counter")
     expect(global_counter) to equal(1)
   end
 
   when("testing the fixture execution chain")
-    set_fixture(before, before_nested)
+    before(before_nested)
 
     it("sets the proper counter")
       expect(global_counter) to equal(2)
